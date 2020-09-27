@@ -24,7 +24,6 @@ const RegistrationForm = (props) => {
             const response = await axios.get(`https://meowfacts.herokuapp.com/`)
             setApi(response.data.data);
         }
-
         fetchData();
     }, []);
 
@@ -48,10 +47,18 @@ const RegistrationForm = (props) => {
         setCard(event.target.value);
     }
 
+    let now = new Date();
+    let date = now.getDate()+'.'+ 
+    (now.getMonth() <= 8
+    ? '0'+(now.getMonth()+1)
+    :  +now.getMonth()+1)
+    +'.'+now.getFullYear();
+
+
     const addClient = () => {
         const data = loyalty === 'card'
-            ? { name: name, surname: surname, gender: gender, loyalty: loyalty, card: card, registrationDate: '22.02.2003' }
-            : { name: name, surname: surname, gender: gender, loyalty: loyalty, registrationDate: '22.02.2003' }
+            ? { name: name, surname: surname, gender: gender, loyalty: loyalty, card: card, registrationDate: date }
+            : { name: name, surname: surname, gender: gender, loyalty: loyalty, registrationDate: date }
 
         dispatch(addClientAC(data));
     }
@@ -72,11 +79,11 @@ const RegistrationForm = (props) => {
                     <div className={s.radioContainer}>
                         <div className={s.radioItem}>
                             <input className={s.radio} onChange={genderChange} type="radio" id="contactChoice1" name="contact" value="Male" />
-                            <label for="contactChoice1">Male</label>
+                            <label >Male</label>
                         </div>
                         <div className={s.radioItem}>
                             <input className={s.radio} onChange={genderChange} type="radio" id="contactChoice2" name="contact" value="Female" />
-                            <label for="contactChoice2">Female</label>
+                            <label >Female</label>
                         </div>
                     </div>
                     <label className={s.sectionTitle}>Loyalty program</label>

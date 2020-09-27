@@ -13,11 +13,12 @@ const Clients = (props) => {
     }, [])
     
     const clients = useSelector(state => state.clients.users)
-    const ClientsElements = clients.map(client => <ClientItem name={client.name} surname={client.surname} registrationDate={client.registrationDate} />);    
-    console.log(clients);
+
+    const ClientsElements = clients.map(client => <ClientItem key={client.name+client.surname} name={client.name} surname={client.surname} registrationDate={client.registrationDate} />);    
+
     return (
-        <div className={s.dialogs}>
-            <div className={s.dialogsItems}>
+        <div  className={s.clientContainer}>
+            <div className={s.clientsItemsContainer}>
                 {ClientsElements}
             </div>
         </div>

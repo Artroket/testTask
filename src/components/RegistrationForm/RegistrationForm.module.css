@@ -9,7 +9,7 @@
 .regForm{
   background-color: #4D4D4D;
   max-width: 520px;
-  width: 520px;
+  min-width: 520px;
   flex: 1;
   border-radius: 16px;
   padding: 32px 40px;
@@ -153,3 +153,13 @@
     .TopMargin {
       margin-top: 24px;
     }
+
+    @media screen and (max-width: 992px) {
+      .all{
+        margin-top: 60px;
+      }
+      .regForm{
+          min-width: 380px;
+          margin: 0px 8px;    
+      }
+  }

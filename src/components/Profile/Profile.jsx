@@ -10,9 +10,9 @@ const Profile = (props) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log(props.path);
         dispatch(changePath(props.path));
     }, [])
+
 
     return (
         <div className={s.container}>
@@ -28,7 +28,7 @@ const Profile = (props) => {
                 </div>
                 <div className={s.about} >
                     <p className={s.subtitle}>About me</p>
-                    <p className={s.paragraph}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet arcu ultrices, viverra massa consectetur, tempus turpis. Fusce ornare sem in mi laoreet ultricies. Sed varius tincidunt orci, vestibulum faucibus dolor aliquam sed. Praesent congue diam ac diam gravida vehicula. Nulla facilisi. Nulla facilisi. Mauris vitae maximus ex. Nulla eget urna libero</p>
+                    <p className={s.paragraph}>I was always interested in learning new things. Studying at the Lyceum and University gave me a strong knowledge of mathematics, understanding the basics of development and teamwork. But then I realized that the things I learned at hight school/ university were not exactly new. Therefore I want to improve my skills and work on a real tasks using latest technologies. I could always easily process big amount of new materials and I'm open to try myself in any IT area. Also opportunity to receive money for my work is a great motivation for me.</p>
                 </div>
             </div>
         </div>
