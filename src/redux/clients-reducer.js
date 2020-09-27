@@ -1,32 +1,23 @@
 const ADD_CLIENT = 'ADD-CLIENT';
-const CHANGE_LOYALTY = 'CHANGE-LOYALTY';
 
 
-let initialState = {
+
+const initialState = {
     users: [
-         {name: 'ya', surname: 'da', registrationDate: '12.02.1995'},
-         {name: 'yds', surname: 'dsf', registrationDate: '11.07.2001'},
-         {name: 'sf', surname: 'fs', registrationDate: '22.02.2003'},
-     ],
-    loyaltyProgram: 'none'
+         {name: 'ktoto', surname: 'da', gender: 'male', loyalty: 'card', card: '32947983470', registrationDate: '12.02.1995'},
+         {name: 'yds', surname: 'dsf', gender: 'gender', loyalty: 'loyalty', registrationDate: '11.07.2001'},
+         {name: 'vasya', surname: 'fs', gender: 'female', loyalty: 'not available',  registrationDate: '22.02.2003'},
+     ]
 }
 
 const clientsReducer = (state = initialState, action) => {
     switch(action.type){
-        case ADD_CLIENT:{
+        case ADD_CLIENT:
+            console.log(action.newClient)
             return {
                 ...state,
-                users: action.body,
-            
-        }
-    }  
-    case CHANGE_LOYALTY:{
-        return {
-            ...state,
-            loyaltyProgram: action.newProgram,
-        
-    }
-}    
+                users: [...state.users, action.newClient]
+    }    
         default:
             return state;
     }
@@ -34,9 +25,6 @@ const clientsReducer = (state = initialState, action) => {
 }
 
 export const addClientAC = (newClient) => 
-    ({type: 'ADD-CLIENT' , newClient: newClient})
-
-export const newProgramAC = (newProgram) => 
-    ({type: 'CHANGE-LOYALTY' , newProgram: newProgram})
+    ({type: ADD_CLIENT , newClient})
 
 export default clientsReducer;

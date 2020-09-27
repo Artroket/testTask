@@ -1,28 +1,40 @@
 .all{
-   
-     
-    background-color: rgb(80, 139, 141);
-    width: 125%;
-    height: 700px;
-  
-    
+  background-color: #2E2E2E;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 .regForm{
-     
-    background-color: rgb(80, 139, 141);
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%) 
+  background-color: #4D4D4D;
+  max-width: 520px;
+  width: 520px;
+  flex: 1;
+  border-radius: 16px;
+  padding: 32px 40px;
+  display: flex;
+  flex-direction: column;
 }
-
   
   label {
     margin-right: 15px;
-    line-height: 32px;
+    line-height: 16.41px;
+    font-size: 14px;
+    color: #E1E1E1;
+  }
+
+  label.sectionTitle {
+    opacity: 0.6;
+    margin-bottom: 8px;
+    margin-left: 16px;
+  }
+
+  label.title {
+    font-size: 36px;
+    line-height: 42px;
+    align-self: center;
+    margin-bottom: 24px;
   }
   
   input {
@@ -30,23 +42,67 @@
     -moz-appearance: none;
     appearance: none;
   
-    border-radius: 50%;
-    width: 16px;
-    height: 16px;
+    border-radius: 8px;
   
-    border: 2px solid #999;
+    border: 2px solid #2E2E2E;
     transition: 0.2s all linear;
     outline: none;
-    margin-right: 5px;
   
     position: relative;
-    top: 4px;
+  }
+
+  input.radio {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+  }
+
+  .radioContainer {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .radioItem {
+    align-items: center;  
+    display: flex;
+    flex-direction: row;
+    flex: 1;
   }
   
   input:checked {
-    border: 6px solid black;
+    /* border: 6px solid black; */
+    background-color: #FF6F53;
+    padding:2px;
+  }
+
+  select {
+    min-height: 32px;
+    flex: 1;
+    display: flex;
+    margin-bottom: 8px;
   }
   
+  .submitContainer {
+    display: flex;
+    flex: 1;
+    align-items: center;
+  }
+
+  input.submit {
+    background-color: #FF6F53;
+    color: #FFFFFF;
+    height: 42px;
+    border-radius: 21px;
+    flex: 1;
+    display: flex;
+    border-width: 0px;
+    font-size: 24px;
+    justify-content: center;
+  }
+
   button,
   legend {
     color: white;
@@ -67,3 +123,33 @@
     color: black;
     outline: 1px solid black;
   }
+
+  .nameInput {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inputText {
+    flex: 1;
+    min-height: 36px;
+    border-radius: 21px;
+    padding-left: 16px;
+    margin-bottom: 16px;
+    background-color: #2E2E2E;
+    border-color: #2E2E2E;
+    color: #E1E1E1;
+    display: flex;
+    align-self: stretch;
+  }
+
+  .inputText:focus {
+    border-color: #FF6F53;  }
+
+    p {
+      color: #E1E1E1;
+    }
+
+    .TopMargin {
+      margin-top: 24px;
+    }

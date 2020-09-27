@@ -1,22 +1,32 @@
-import React, { Profiler } from 'react';
+import React, { useEffect } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import Profile from './components/Profile/Profile';
-import { Route } from 'react-router-dom';
-import ClientsContainer from './components/Clients/ClientsContainer';
-import RegistrationFormContainer from "./components/RegistrationForm/RegistrationFormContainer";
+import RegistrationForm from './components/RegistrationForm/RegistrationForm';
+import Clients from './components/Clients/Clients';
 
 
 
 const App = (props) => {
-  console.log(props.store.getState());
   return (
     <div className='app-wrapper'>
       <Header /> 
       <div className='app-wrapper-content'>
-        <Route path='/registrationForm' render={() => <RegistrationFormContainer store={props.store}/>}/>
-        <Route path='/profile' render={() => <Profile store={props.store}/>}/>
-        <Route path='/clients' render={() => <ClientsContainer store={props.store}/> }  />  
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => {
+                return (
+                  <Redirect to="/profile" /> 
+                )
+            }}
+          />
+          <Route exact path='/profile' render={(props) => <Profile path={props.location.pathname} store={props.store}/>}/>
+          <Route exact path='/registrationForm' render={(props) => <RegistrationForm path={props.location.pathname} store={props.store}/>}/>
+          <Route exact path='/clients' render={(props) => <Clients path={props.location.pathname} store={props.store}/> }  /> 
+        </Switch>
       </div>
     </div>
 
